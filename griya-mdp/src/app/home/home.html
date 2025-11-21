@@ -5,8 +5,8 @@
       <div class="col-lg-6 mb-4 mb-lg-0">
         <h1 class="display-4 fw-bold mb-3">Perumahan Impian Semua Insan</h1>
         <p class="lead mb-4">
-          Temukan rumah idaman Anda dengan lokasi strategis, fasilitas lengkap, 
-          dan harga terjangkau. Griya MDP hadir untuk mewujudkan hunian impian keluarga Indonesia.
+          Temukan rumah idaman Anda dengan lokasi strategis, fasilitas lengkap, dan harga
+          terjangkau. Griya MDP hadir untuk mewujudkan hunian impian keluarga Indonesia.
         </p>
         <div class="d-flex gap-3">
           <a href="#properties" class="btn btn-light btn-lg">
@@ -15,9 +15,11 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop" 
-             alt="Perumahan Modern" 
-             class="img-fluid rounded shadow-lg">
+        <img
+          src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
+          alt="Perumahan Modern"
+          class="img-fluid rounded shadow-lg"
+        />
       </div>
     </div>
   </div>
@@ -82,27 +84,37 @@
     <div class="row mb-4">
       <div class="col-lg-12 text-center">
         <h2 class="fw-bold mb-3">Pilihan Hunian Terbaik</h2>
-        <p class="text-muted mb-4">Jelajahi berbagai pilihan properti berkualitas dengan fasilitas modern</p>
+        <p class="text-muted mb-4">
+          Jelajahi berbagai pilihan properti berkualitas dengan fasilitas modern
+        </p>
         <!-- Filter/Sort Options -->
         <div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
-          <button class="btn btn-outline-primary" 
-                  [class.active]="isFilterActive('all')"
-                  (click)="filterByType('all')">
+          <button
+            class="btn btn-outline-primary"
+            [class.active]="isFilterActive('all')"
+            (click)="filterByType('all')"
+          >
             <i class="bi bi-grid-3x3-gap me-2"></i>Semua
           </button>
-          <button class="btn btn-outline-primary"
-                  [class.active]="isFilterActive('rumah')"
-                  (click)="filterByType('rumah')">
+          <button
+            class="btn btn-outline-primary"
+            [class.active]="isFilterActive('rumah')"
+            (click)="filterByType('rumah')"
+          >
             <i class="bi bi-house me-2"></i>Rumah
           </button>
-          <button class="btn btn-outline-primary"
-                  [class.active]="isFilterActive('apartemen')"
-                  (click)="filterByType('apartemen')">
+          <button
+            class="btn btn-outline-primary"
+            [class.active]="isFilterActive('apartemen')"
+            (click)="filterByType('apartemen')"
+          >
             <i class="bi bi-building me-2"></i>Apartemen
           </button>
-          <button class="btn btn-outline-primary"
-                  [class.active]="isFilterActive('villa')"
-                  (click)="filterByType('villa')">
+          <button
+            class="btn btn-outline-primary"
+            [class.active]="isFilterActive('villa')"
+            (click)="filterByType('villa')"
+          >
             <i class="bi bi-tree me-2"></i>Villa
           </button>
         </div>
@@ -128,7 +140,9 @@
     <!-- Load More Button -->
     <div class="row" *ngIf="filteredList.length > 0">
       <div class="col-12 text-center">
-        <p class="text-muted mb-3">Menampilkan {{ filteredList.length }} dari {{ housingList.length }} properti</p>
+        <p class="text-muted mb-3">
+          Menampilkan {{ filteredList.length }} dari {{ housingList.length }} properti
+        </p>
         <button class="btn btn-primary btn-lg">
           <i class="bi bi-arrow-down-circle me-2"></i>Lihat Lebih Banyak
         </button>
@@ -143,7 +157,9 @@
     <div class="row align-items-center">
       <div class="col-lg-8 mb-3 mb-lg-0 text-center text-lg-start">
         <h3 class="fw-bold mb-2">Siap Menemukan Rumah Impian Anda?</h3>
-        <p class="mb-0">Hubungi kami sekarang dan dapatkan penawaran terbaik untuk properti pilihan Anda</p>
+        <p class="mb-0">
+          Hubungi kami sekarang dan dapatkan penawaran terbaik untuk properti pilihan Anda
+        </p>
       </div>
       <div class="col-lg-4 text-center text-lg-end">
         <a routerLink="/contact" class="btn btn-light btn-lg">
