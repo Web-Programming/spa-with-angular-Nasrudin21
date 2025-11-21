@@ -14,16 +14,16 @@ export const routes: Routes = [
     title: 'Home Page',
   },
   {
-    path: 'profile',
+    path: 'Profile',
     component: Profile,
     //title : "Profile Page"
   },
   {
-    path: 'login',
+    path: 'Login',
     component: Login,
   },
   {
-    path: 'register',
+    path: 'Register',
     component: Register,
   },
   {
