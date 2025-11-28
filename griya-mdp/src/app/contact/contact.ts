@@ -18,38 +18,51 @@ import { CommonModule } from '@angular/common';
   //Tambahkan metode submitContact() untuk menangani pengiriman form
   //
   //Tampilkan pesan sukses atau error berdasarkan hasil pengiriman
-  export class Contact {
-    ContactForm:FormGroup;
+export class Contact {
+  contactForm: FormGroup;
+  successMessage: string = '';
+  errorMessage: string = '';
 
+  constructor(private fb: FormBuilder) {
+    this.contactForm = this.fb.group({
+      fullName: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.pattern(/^[0-9+\s-]+$/)]],
+      subject: ['', [Validators.required]],
+      message: ['', [Validators.required, Validators.minLength(10)]],
+      newsletter: [false]
+    });
+  }
 
-    constructor(private fb: FormBuilder) {
-    
- this.ContactForm = this.fb.group({
-  //Nama (required, min 2 karakter)
-    nama: ['', [Validators.required, Validators.minLength(2)]],
-    //Email (required, format email valid)
-    email: ['', [Validators.required, Validators.email]],
-    //Pesan (required, min 10 karakter)
-    pesan: ['', [Validators.required, Validators.minLength(10)]],
-  })
+  submitContact(): void {
+    if (this.contactForm.valid) {
+      const formData = this.contactForm.value;
+      console.log('Contact form submitted', formData);
+      
+      // Simulasi sukses
+      this.successMessage = 'Pesan Anda berhasil dikirim! Kami akan menghubungi Anda segera.';
+      this.errorMessage = '';
+      
+      // Reset form setelah submit
+      this.contactForm.reset();
+      
+      // Clear success message setelah 5 detik
+      setTimeout(() => {
+        this.successMessage = '';
+      }, 5000);
+      
+      // TODO: Kirim ke backend API
+      // this.http.post('http://localhost:3000/api/contact', formData).subscribe(...)
+    } else {
+      console.log('Form is not valid');
+      this.errorMessage = 'Mohon lengkapi semua field dengan benar.';
+      this.successMessage = '';
     }
-  successMessage = '';
-  errorMessage = '';
+  }
 
-  //Tambahkan metode submitContact() untuk menangani pengiriman form
-  submitContact() {
+  resetForm(): void {
+    this.contactForm.reset();
     this.successMessage = '';
     this.errorMessage = '';
-
-    if (this.ContactForm.invalid) {
-      this.errorMessage = 'Form tidak valid, periksa kembali input Anda.';
-      return;
-    }
-
-    //Tampilkan pesan sukses atau error berdasarkan hasil pengiriman
-    setTimeout(() => {
-      this.successMessage = 'Pesan berhasil dikirim! Terima kasih telah menghubungi kami.';
-      this.ContactForm.reset();
-    }, 500);
   }
 }

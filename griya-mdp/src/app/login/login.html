@@ -12,6 +12,17 @@
         <!-- Login Form Card -->
         <div class="card shadow-lg border-0">
           <div class="card-body p-4 p-md-5">
+                <!-- Success Alert -->
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="successMessage">
+      <i class="bi bi-check-circle-fill me-2"></i>{{ successMessage }}
+      <button type="button" class="btn-close" (click)="successMessage = ''" aria-label="Close"></button>
+    </div>
+
+    <!-- Error Alert -->
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="errorMessage">
+      <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ errorMessage }}
+      <button type="button" class="btn-close" (click)="errorMessage = ''" aria-label="Close"></button>
+    </div>
             <!-- Form akan berada di sini -->
              <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
                 <!-- Form fields -->
@@ -78,12 +89,15 @@
 </div>
 
 
+<!-- Submit Button -->
 <div class="d-grid gap-2 mb-3">
   <button 
     type="submit" 
     class="btn btn-primary btn-lg py-3"
-    [disabled]="loginForm.invalid">
-    <i class="bi bi-box-arrow-in-right me-2"></i>Login
+    [disabled]="loginForm.invalid || isLoading">
+    <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+    <i *ngIf="!isLoading" class="bi bi-box-arrow-in-right me-2"></i>
+    {{ isLoading ? 'Memproses...' : 'Login' }}
   </button>
 </div>
 
